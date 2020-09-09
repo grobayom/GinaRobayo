@@ -1,13 +1,12 @@
 ---
-title: "Reproducible Research: Peer Assessment 1"
-output: 
+title: "The first activity Peer Assessment 1_Gina Robayo"
+author: Gina Robayo
+date: "3/26/2017"
   html_document:
     keep_md: true
 ---
-
 ## Loading and preprocessing the data
 activity = read.csv("C:/Users/ginna.robayo/Desktop/GINA PERSONAL/COURSERA/specdata/activity.csv")
-
 
 ## What is mean total number of steps taken per day?
 total_of_steps_of_day <- sum(activity$steps, na.rm = TRUE)
@@ -25,6 +24,9 @@ total_steps_per_day <- aggregate(steps~date, data=activity, FUN=sum, na.rm=TRUE)
 hist(total_steps_per_day$steps)
 
 ##Calculating the mean and median
+
+> total_steps_each_perday_median <- median(total_steps_each_day$steps)
+> total_steps_each_perday_mean <- mean(total_steps_each_day$steps)
 
 ## What is the average daily activity pattern?
 
