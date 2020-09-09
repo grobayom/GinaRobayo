@@ -1,0 +1,37 @@
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
+
+## Loading and preprocessing the data
+activity = read.csv("C:/Users/ginna.robayo/Desktop/GINA PERSONAL/COURSERA/specdata/activity.csv")
+
+
+## What is mean total number of steps taken per day?
+total_of_steps_of_day <- sum(activity$steps, na.rm = TRUE)
+
+##the total number of steps per day is
+total_of_steps_of_day
+[1] 570608
+
+##If you do not understand the difference between a histogram and a barplot, research the difference between them. Make a histogram of the total number of steps taken each day##
+
+## Calculating the total number of steps taken each day and stored in a variable
+total_steps_per_day <- aggregate(steps~date, data=activity, FUN=sum, na.rm=TRUE)
+
+## Generating the Histogram by each day
+hist(total_steps_per_day$steps)
+
+##Calculating the mean and median
+
+## What is the average daily activity pattern?
+
+
+
+## Imputing missing values
+
+
+
+## Are there differences in activity patterns between weekdays and weekends?
