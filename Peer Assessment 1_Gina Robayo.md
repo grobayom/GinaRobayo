@@ -151,7 +151,8 @@ meanImputing <- aggregate(steps ~ interval + dating, imputing, mean)
 head(meanImputing)
 
 library(ggplot2)
- panelPlot <- ggplot(data = meanImputing, aes(x = interval, y = steps)) +
+
+panelPlot <- ggplot(data = meanImputing, aes(x = interval, y = steps)) +
 
      geom_line(color = "gold") +
      
@@ -164,3 +165,6 @@ library(ggplot2)
      ggtitle("Average steps in 5-minute interval")
      
  print(panelPlot)
+ 
+ ![Screenshot](image5.png)
+ 
