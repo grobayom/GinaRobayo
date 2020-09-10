@@ -56,4 +56,13 @@ maxInt <- meanStepsByInt[which.max(meanStepsByInt$steps),]
 
 So, the 5-minute interval that contains the maximum number of steps ( 206.2 steps ) is the interval 835.
 
+## Imputing missing values
+ * Calculate and report the total number of missing values in the dataset
 
+missingVals <- is.na(activity$steps)
+
+* Create a new dataset that is equal to the original dataset but with 
+- the missing data filled in.
+
+imp_activity <- transform(activity,steps = ifelse(is.na(activity$steps),
++ meanStepsByInt$steps[match(activity$interval,meanStepsByInt$interval)],activity$steps))
