@@ -50,8 +50,8 @@ ggplot(data = meanStepsByInt, aes(x = interval, y = steps)) + geom_line() + ggti
 
 maxInt <- meanStepsByInt[which.max(meanStepsByInt$steps),]
 
-interval    steps
-104      835 206.1698
+/interval    /steps
+104         835     206.1698
 
 So, the 5-minute interval that contains the maximum number of steps ( 206.2 steps ) is the interval 835.
 
