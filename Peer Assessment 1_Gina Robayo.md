@@ -38,7 +38,7 @@ total_steps_each_perday_mean <- mean(total_steps_per_day$steps)
 * Mean: 10766.19
 
 ## What is the average daily activity pattern?
-Make a time-series plot of the 5-minute interval and the average number of steps taken, averaged acoss all days.
+* Make a time-series plot of the 5-minute interval and the average number of steps taken, averaged acoss all days.
 
 library(ggplot2)
 meanStepsByInt <- aggregate(steps ~ interval, activity, mean)
@@ -46,7 +46,13 @@ ggplot(data = meanStepsByInt, aes(x = interval, y = steps)) + geom_line() + ggti
 
 ![Screenshot](image2.png)
 
+* Which 5-minute interval across all days contain the maximum number of steps
 
+maxInt <- meanStepsByInt[which.max(meanStepsByInt$steps),]
 
+interval    steps
+104      835 206.1698
+
+So, the 5-minute interval that contains the maximum number of steps ( 206.2 steps ) is the interval 835.
 
 
