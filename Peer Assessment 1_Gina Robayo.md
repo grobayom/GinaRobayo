@@ -119,7 +119,7 @@ H2 <- ggplot(data = sumImputing, aes(x = Imputedsteps)) +
         ggtitle("Histogram of the Total Number of Steps Taken Each Day")
 print(H2)
 
-![Screenshot](Image 4.png)
+![Screenshot](histogramH2.png)
 
 
 
