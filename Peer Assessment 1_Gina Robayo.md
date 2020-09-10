@@ -121,5 +121,46 @@ print(H2)
 
 ![Screenshot](histogramH2.png)
 
+Mean of sumIputing
 
+mean(sumImputing$Imputedsteps)
 
+[1] 10766.19
+
+Median of sumIputing
+
+median(sumImputing$Imputedsteps)
+
+[1] 10766.19
+
+_The mean and median of the original data with NAs are 10766.19 and 10765 respectively.
+
+_Likewise the mean and median of the imputed data without NAs are 10766.19 and 10766.19.
+
+_Thus, there is no real different between the two sets of data.
+
+# Are there differences in activity patterns between weekdays and weekends?
+
+For this part the weekdays() function may be of some help here. Use the dataset with the filled-in missing values for this part.
+Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
+
+imputing$dating <- ifelse(as.POSIXlt(imputing$date)$wday %in% c(0,6), "Weekend", "Weekday")
+> head(imputing)
+
+meanImputing <- aggregate(steps ~ interval + dating, imputing, mean)
+head(meanImputing)
+
+library(ggplot2)
+ panelPlot <- ggplot(data = meanImputing, aes(x = interval, y = steps)) +
+
+     geom_line(color = "gold") +
+     
+     facet_grid(dating ~ .) +
+     
+     xlab("5-minute interval") +
+     
+     ylab("Average steps") +
+     
+     ggtitle("Average steps in 5-minute interval")
+     
+ print(panelPlot)
