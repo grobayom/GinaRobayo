@@ -18,11 +18,11 @@ total_of_steps_of_day <- sum(activity$steps, na.rm = TRUE)
 
 ## Make a histogram of the total number of steps taken each day
 
-Calculating the total number of steps taken each day and stored in a variable
+* Calculating the total number of steps taken each day and stored in a variable
 
 total_steps_per_day <- aggregate(steps~date, data=activity, FUN=sum, na.rm=TRUE)
 
-## Generating the Histogram by each day
+* Generating the Histogram by each day
 
 hist(total_steps_per_day$steps)
 
