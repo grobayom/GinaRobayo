@@ -26,7 +26,7 @@ total_steps_per_day <- aggregate(steps~date, data=activity, FUN=sum, na.rm=TRUE)
 
 hist(total_steps_per_day$steps)
 
-![plot of chunk hist](images/hist.jpg) 
+(images/hist.jpg) 
 
 ## Calculating the mean and median
 
