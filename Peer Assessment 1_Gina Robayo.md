@@ -6,31 +6,16 @@ output:
 ---
 
 
-
 ## Loading and preprocessing the data
-
-First we load the data from the `activity.csv`. We use `dplyr` library for easier
-manipulation with the data. The dates are handled with the `lubridate` library.
-
-
-```r
-library(dplyr)
-library(lubridate)
-activity <- tbl_df(read.csv("activity.csv")) %>% mutate(date = ymd(date))
-```
-
+activity = read.csv("C:/Users/ginna.robayo/Desktop/GINA PERSONAL/COURSERA/specdata/activity.csv")
 
 ## What is mean total number of steps taken per day?
+total_of_steps_of_day <- sum(activity$steps, na.rm = TRUE)
 
-First, we calculate total number of steps taken each day; we omit the incomplete cases, 
-i.e., when the number of steps is not reported (missing in the data).
+##the total number of steps per day is
+total_of_steps_of_day
+[1] 570608
 
-
-```r
-total_steps <- subset(activity, complete.cases(activity)) %>% 
-  group_by(date) %>% 
-  summarize(total = sum(steps))
-```
 
 Next, we make a histogram of the total number of steps in order to see its variance 
 and distribution.
@@ -40,8 +25,7 @@ and distribution.
 hist(total_steps$total, breaks = 10, main = "Histogram of total number of steps taken each day",
      xlab = "Total number of steps per day")
 ```
-
-![plot of chunk hist](figure/hist-1.png) 
+(figure/hist-1.png) 
 
 Finally, we compute *mean* and *median* values of the total number of steps.
 
@@ -191,4 +175,4 @@ g <- g + geom_line()
 g + xlab("Interval") + ylab("Number of steps")
 ```
 
-![plot of chunk timeseries_compare](figure/timeseries_compare-1.png) 
+(figure/timeseries_compare-1.png) 
