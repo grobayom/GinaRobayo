@@ -42,12 +42,7 @@ Make a time-series plot of the 5-minute interval and the average number of steps
 
 library(ggplot2)
 meanStepsByInt <- aggregate(steps ~ interval, activity, mean)
-ggplot(data = meanStepsByInt, aes(x = interval, y = steps)) +
-+   geom_line() +
-+   ggtitle("Average Daily Activity Pattern") +
-+   xlab("5-minute Interval") +
-+   ylab("Average Number of Steps") +
-+   theme(plot.title = element_text(hjust = 0.5))
+ggplot(data = meanStepsByInt, aes(x = interval, y = steps)) + geom_line() + ggtitle("Average Daily Activity Pattern") + xlab("5-minute Interval") + ylab("Average Number of Steps") + theme(plot.title = element_text(hjust = 0.5))
 
 ![Screenshot](image2.png)
 
