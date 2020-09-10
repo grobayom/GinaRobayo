@@ -61,8 +61,18 @@ So, the 5-minute interval that contains the maximum number of steps ( 206.2 step
 
 missingVals <- is.na(activity$steps)
 
-* Create a new dataset that is equal to the original dataset but with 
-- the missing data filled in.
+There are 16568 missing values. I will replace these missing values with the 5-day average of that respective interval. 
 
-imp_activity <- transform(activity,steps = ifelse(is.na(activity$steps),
-+ meanStepsByInt$steps[match(activity$interval,meanStepsByInt$interval)],activity$steps))
+* Create a new dataset that is equal to the original dataset but with the missing data filled in.
+
+imp_activity <- transform(activity,steps = ifelse(is.na(activity$steps), meanStepsByInt$steps[match(activity$interval,meanStepsByInt$interval)],activity$steps))
+
+*Make a histogram of the total number of steps taken each day, and report the mean and median.
+
+impStepsByInt <- aggregate(steps ~ date, imp_activity, FUN=sum)
+hist(impStepsByInt$steps,
+     main = "Imputed Number of Steps Per Day",
+     xlab = "Number of Steps")
+
+![Screenshot](image3.png)
+     
