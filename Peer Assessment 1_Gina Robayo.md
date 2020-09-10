@@ -31,6 +31,27 @@ hist(total_steps_per_day$steps)
 
 ## Calculating the mean and median
 
-> total_steps_each_perday_median <- median(total_steps_each_day$steps)
-> total_steps_each_perday_mean <- mean(total_steps_each_day$steps)
+total_steps_each_perday_median <- median(total_steps_per_day$steps)
+* Median: 10765
+
+total_steps_each_perday_mean <- mean(total_steps_per_day$steps)
+* Mean: 10766.19
+
+## What is the average daily activity pattern?
+Make a time-series plot of the 5-minute interval and the average number of steps taken, averaged acoss all days.
+
+library(ggplot2)
+meanStepsByInt <- aggregate(steps ~ interval, activity, mean)
+ggplot(data = meanStepsByInt, aes(x = interval, y = steps)) +
+   geom_line() +
+   ggtitle("Average Daily Activity Pattern") +
+   xlab("5-minute Interval") +
+   ylab("Average Number of Steps") +
+   theme(plot.title = element_text(hjust = 0.5))
+
+![Screenshot](image2.png)
+
+
+
+
 
